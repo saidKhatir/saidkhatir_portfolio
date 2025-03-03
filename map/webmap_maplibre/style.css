@@ -1,0 +1,359 @@
+/* Conteneur principal */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Contenu principal */
+.main-content {
+  display: flex;
+  flex-grow: 1;
+  height: 100vh;
+  position: relative;
+}
+
+/* Map container adjustments */
+#map-container {
+  position: relative;
+  height: 100%;
+  width: 90%; /* Ajuster à 70% pour laisser de la place à #extra-container */
+  display: flex;
+}
+
+#map {
+  height: 100%;
+  width: 100%; /* Occupe toute la largeur du conteneur */
+}
+
+#info { 
+  float : right;
+  bottom: 50px; /* 10px à partir du bas du conteneur */
+  left: 10px; /* 10px à partir de la gauche */
+  left: 10px; background: white; padding: 10px; z-index: 1; }
+
+/* Positionner le conteneur supplémentaire à gauche de la carte */
+#extra-container {
+  width: 20%; /* Prend 30% de l'espace */
+  height: 100%;
+  background-color: #f8f9fa; /* Couleur de fond homogène avec le header */
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #dee2e6; /* Bordure pour séparer visuellement du contenu principal */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Nécessaire pour le positionnement du bouton */
+  transition: width 0.3s ease; /* Transition pour la rétraction/expansion */
+}
+
+#extra-container.collapsed {
+  width: 0; /* Rétracté */
+  padding: 0;
+  overflow: hidden; /* Cache le contenu lorsqu'il est rétracté */
+}
+
+/* Boutons pour rétracter/expander */
+#close-extra,
+#open-extra {
+  position: absolute;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333; /* Couleur similaire pour cohérence */
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+  z-index: 1001; /* Assurez-vous que le bouton reste au-dessus des autres éléments */
+}
+
+#close-extra {
+  right: 10px;
+}
+
+#open-extra {
+  left: 10px;
+  top: 50px;
+}
+
+#open-extra.hidden {
+  display: none;
+}
+
+/* Styles du header pour correspondre à extra-container */
+header.navbar {
+  background-color: #f8f9fa;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #dee2e6;
+  z-index: 20000;
+}
+
+.navbar-nav .nav-link {
+  color: #333;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: #e9ecef;
+  border-radius: 5px;
+}
+
+/* Style homogène pour les titres et le texte */
+h3, h6, .navbar-brand {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+h3, .navbar-brand {
+  font-size: 24px;
+}
+
+h6 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.extra-content {
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+}
+
+.card, #controls, .filter-menu, .dropdown-menu {
+  background: white;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: none !important; /* Forcer la suppression des bordures */
+}
+
+
+.form-check-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-check-inline {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.form-check-label {
+  margin-left: 8px;
+}
+
+.bi-info-circle {
+  cursor: pointer;
+  font-size: 16px;
+  color: #007bff;
+}
+
+.color-bar {
+  padding: 5px;
+  color: white;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+/* Adaptation pour les filtres en listes déroulantes */
+.dropdown-menu .dropdown-item {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+#filters-container {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 100px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+}
+
+ #slider-outer-div {
+  position: relative;
+}
+
+#slider-div {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+} 
+
+#slider-div>div {
+  margin: 8px;
+}
+
+#slider-labels-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+} */
+
+.slider-label {
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  padding: 2px 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 12px;
+  pointer-events: none;
+  white-space: nowrap;
+  transform: translateX(-50%); 
+}
+
+.legend-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.legend-content {
+  margin-top: 10px;
+}
+
+.vector-map__legend-description {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -.2px;
+  color: #3a3a3a;
+  margin-bottom: 10px;
+}
+
+.colorscale {
+  display: flex;
+  justify-content: left;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.colorscale li {
+  display: inline-block;
+  width: 25px;
+  height: 20px;
+  margin-right: 3px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.colorscale .lbound,
+.colorscale .ubound {
+  font-size: 10px;
+  /* font-weight: 600; */
+  color: #333;
+}
+
+.colorscale li[class^="q"] {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.q1_12 { background-color: hsla(0, 0%, 0%, 0); }
+.q2_12 { background-color: #faf9f3; }
+.q3_12 { background-color: #fec46c; }
+.q4_12 { background-color: #fe9929; }
+.q5_12 { background-color: #e57217; }
+.q6_12 { background-color: #c4510b; }
+.q7_12 { background-color: #993404; }
+
+.hidden {
+  display: none;
+}
+
+.form-check-input {
+  background-color: #ccc; /* Couleur de fond du switch quand il est désactivé */
+  border-color: #ccc; /* Couleur de la bordure du switch */
+}
+
+.form-check-input {
+  background-color: #4CAF50; /* Couleur de fond du switch quand il est activé */
+  border-color: #4CAF50; /* Couleur de la bordure du switch quand il est activé */
+}
+
+.legend-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  font-size: 16px;
+}
+
+#marker {
+  background-image: url('/map/data_webmap/icons/image_belfort.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), /* Ombre extérieure pour donner de la profondeur */
+              0 0 5px rgba(255, 255, 255, 0.8) inset; /* Ombre intérieure légère pour un effet lumineux */
+}
+
+/* Ajouter un pseudo-élément pour la croix */
+#marker::after {
+  content: '✕'; /* Utilisation du symbole de croix */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0); /* Centrer la croix et la réduire */
+  font-size: 24px;
+  color: #ffffff; /* Couleur rouge pour la croix */
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Afficher la croix au survol */
+#marker:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1); /* Afficher et agrandir la croix */
+}
+#marker-duplicate {
+  position: absolute;
+  top: 50px;
+  /* right: 450px; */
+  z-index: 10;
+  width: 90px;
+  height: 90px;
+  background-image: url('/map/data_webmap/icons/image_belfort.png');
+  background-size: cover;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), /* Ombre extérieure pour donner de la profondeur */
+              0 0 5px rgba(255, 255, 255, 0.8) inset; /* Ombre intérieure légère pour un effet lumineux */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Effet de transition fluide */
+}
+
+.dropdown-menu {
+  min-width: 200px; /* Largeur de la liste déroulante */
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#marker-duplicate:hover .dropdown-menu {
+  display: block; /* Afficher la liste déroulante lors du survol */
+  position: absolute;
+  top: 60px; /* Ajuster pour positionner la liste sous le marqueur */
+  right: 0; /* Aligner à droite par rapport au marqueur */
+  z-index: 20; /* Assurez-vous qu'elle reste visible */
+}
+
+.maplibregl-popup {
+  max-width: 200px;
+}

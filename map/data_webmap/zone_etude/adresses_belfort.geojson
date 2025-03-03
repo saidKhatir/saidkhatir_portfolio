@@ -1,0 +1,27 @@
+{
+"type": "FeatureCollection",
+"name": "adresses_belfort",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "objectid": 5, "address": "53 Av Jaures", "X_L2E": 939325, "Y_L2E": 2303784 }, "geometry": { "type": "Point", "coordinates": [ 6.855261003366304, 47.645800000230302, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 7, "address": "59 Fbg des Ancetres", "X_L2E": 939489, "Y_L2E": 2303293 }, "geometry": { "type": "Point", "coordinates": [ 6.857068003365477, 47.641310000230021, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 8, "address": "33 Fbg des Ancetres", "X_L2E": 939529, "Y_L2E": 2303047 }, "geometry": { "type": "Point", "coordinates": [ 6.857412003365282, 47.639080000229832, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 10, "address": "Entree galerie Fbg Fbg Montbeliard", "X_L2E": 939553, "Y_L2E": 2302776 }, "geometry": { "type": "Point", "coordinates": [ 6.857525003365113, 47.636630000229729, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 12, "address": "17 Fbg Montbeliard", "X_L2E": 939545, "Y_L2E": 2302376 }, "geometry": { "type": "Point", "coordinates": [ 6.85711200336498, 47.633040000229457, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 13, "address": "56 b Fbg de France", "X_L2E": 939341, "Y_L2E": 2302687 }, "geometry": { "type": "Point", "coordinates": [ 6.854629003365898, 47.635940000229759, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 14, "address": "67 Fbg de France", "X_L2E": 939275, "Y_L2E": 2302562 }, "geometry": { "type": "Point", "coordinates": [ 6.85366600336611, 47.634850000229768, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 16, "address": "1 R Michelet", "X_L2E": 939284, "Y_L2E": 2302671 }, "geometry": { "type": "Point", "coordinates": [ 6.853861243109439, 47.63583125631834, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 18, "address": "3 R Proudhon", "X_L2E": 939387, "Y_L2E": 2302783 }, "geometry": { "type": "Point", "coordinates": [ 6.855322003365774, 47.636780000229784, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 21, "address": "27 Quai Vauban", "X_L2E": 939636, "Y_L2E": 2302999 }, "geometry": { "type": "Point", "coordinates": [ 6.858799003364831, 47.638590000229769, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 22, "address": "5 Av du Marechal Foch", "X_L2E": 939658, "Y_L2E": 2302850 }, "geometry": { "type": "Point", "coordinates": [ 6.858965003364696, 47.637240000229667, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 27, "address": "Entree Marche Frery", "X_L2E": 939723, "Y_L2E": 2303223 }, "geometry": { "type": "Point", "coordinates": [ 6.8601210033646, 47.640560000229883, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 31, "address": "2 Fbg des Ancetres", "X_L2E": 939562, "Y_L2E": 2302938 }, "geometry": { "type": "Point", "coordinates": [ 6.857757003149437, 47.638080000072769, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 33, "address": "Fbg de France Entree galerie des faubourgs", "X_L2E": 939503, "Y_L2E": 2302820 }, "geometry": { "type": "Point", "coordinates": [ 6.856893003509406, 47.637050000374671, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 38, "address": "2 Pl d Armes", "X_L2E": 939959, "Y_L2E": 2303053 }, "geometry": { "type": "Point", "coordinates": [ 6.86312700345728, 47.638910000176459, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 43, "address": "2 Bd Carnot", "X_L2E": 939656, "Y_L2E": 2302912 }, "geometry": { "type": "Point", "coordinates": [ 6.858990003758605, 47.637800000089896, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 44, "address": "6 Pl d Armes", "X_L2E": 939928, "Y_L2E": 2302977 }, "geometry": { "type": "Point", "coordinates": [ 6.862650003431384, 47.638240000513171, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 46, "address": "2 Fbg de Montbeliard", "X_L2E": 939567, "Y_L2E": 2302835 }, "geometry": { "type": "Point", "coordinates": [ 6.857756003324515, 47.637150000030552, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 47, "address": "8 R de l As de carreau", "X_L2E": 939352, "Y_L2E": 2302935 }, "geometry": { "type": "Point", "coordinates": [ 6.854973003710518, 47.638160000051826, 0.0 ] } },
+{ "type": "Feature", "properties": { "objectid": 50, "address": "25 Pl de la Republique", "X_L2E": 939889, "Y_L2E": 2303026 }, "geometry": { "type": "Point", "coordinates": [ 6.862178801132453, 47.638701457113577, 0.0 ] } }
+]
+}

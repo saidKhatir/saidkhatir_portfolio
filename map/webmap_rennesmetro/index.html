@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Webmapping - Rennes Métropole</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Import des styles et scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Carte -->
+    <div id="map"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Ajout du titre -->
+        <div class="sidebar-header">
+            <h4>Les points d'intérêts de Rennes Métropole</h4>
+        </div>
+
+        <div class="menu_overlay">
+            
+            <fieldset>
+                <label class="categoryLabel">Données Mobilités</label>
+                <div>
+                    <input type="checkbox" id="schema_veloCB" value="Routes" onchange="switchlayer('Routes')" />
+                    <label for="schema_veloCB">Schéma Vélo</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="VLSCB" value="VLS" onchange="switchlayer('VLS')" checked />
+                    <label for="VLSCB">Stations Vélo</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ParcrelaisCB" value="Parcrelais" onchange="switchlayer('Parcrelais')" checked />
+                    <label for="ParcrelaisCB">Parc Relais</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="BUSCB" value="BUS" onchange="switchlayer('BUS')" />
+                    <label for="BUSCB">Bus (en temps réel)</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <label class="categoryLabel">Données Activités</label>
+                <div>
+                    <input type="checkbox" id="pubsCB" value="pubs" onchange="switchlayer('pubs')" />
+                    <label for="pubsCB">Les Bars</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="CadastreCB" value="Cadastre" onchange="switchlayer('Cadastre')" />
+                    <label for="CadastreCB">Parcelles Cadastrales</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="batimentsCB" value="batiments" onchange="switchlayer('batiments')" />
+                    <label for="batimentsCB">Bâtiments</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="organismeCB" value="organisme" onchange="switchlayer('organisme')" />
+                    <label for="organismeCB">Base Organisme</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <label class="categoryLabel">Autres</label>
+                <div>
+                    <input type="checkbox" id="PLUCB" value="PLU" onchange="switchlayer('PLU')" />
+                    <label for="PLUCB">PLU Type N (secteurs naturels et forestiers)</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ArbresCB" value="Arbres" onchange="switchlayer('Arbres')" />
+                    <label for="ArbresCB">Arbres</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <!-- Boutons -->
+        <div class="button-group">
+            <button id="Gare" class="btn">Quartier Gare-Centre</button>
+            <button id="Rennes1" class="btn">Université Rennes 1</button>
+            <button id="Rennes2" class="btn">Université Rennes 2</button>
+        </div>
+    </div>
+
+</body>
+<script src="/map/webmap_rennesmetro/main.js"></script>
+</html>
