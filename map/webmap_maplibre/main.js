@@ -85,10 +85,10 @@ let selectedVariable = "PartVolumeMoyen";  // Default selected variable
             }
         }
         // const GEOSERVER_KEY = '6b07c417-efe7-4ca4-9573-9fbd698419c9';
-        const GEOJSON_EPCI = './map/data_webmap/simplifier/epci_nuite_simplifier.geojson';
-        const GEOJSON_COMMUNE = './map/data_webmap/simplifier/commune_nuite_simplifier.geojson';
-        const GEOJSON_IRIS = './map/data_webmap/simplifier/iris_nuite_simplifier.geojson';
-        const GEOJSON_COEUR_DE_VILLE = './map/data_webmap/zone_etude/contour_cdv.geojson';
+        const GEOJSON_EPCI = '../data_webmap/simplifier/epci_nuite_simplifier.geojson';
+        const GEOJSON_COMMUNE = '../data_webmap/simplifier/commune_nuite_simplifier.geojson';
+        const GEOJSON_IRIS = '../data_webmap/simplifier/iris_nuite_simplifier.geojson';
+        const GEOJSON_COEUR_DE_VILLE = '../data_webmap/zone_etude/contour_cdv.geojson';
         
 
 
