@@ -41,7 +41,7 @@ class ResetZoomControl {
         resetZoomControl.title = 'Revenir au zoom initial'; // Ajouter une infobulle
 
         const resetIcon = document.createElement('img');
-        resetIcon.src = '/map/data_webmap/icons/reset.svg';
+        resetIcon.src = '../data_webmap/icons/reset.svg';
         resetIcon.style.width = '20px';
         resetZoomControl.appendChild(resetIcon);
 
@@ -958,8 +958,8 @@ const calculatePenetrationRate = (data, averages, key = 'NE_ID') => {
 // Fonction pour mettre à jour la carte avec de nouvelles données
 const updateMapWithNewData = (selectedDates) => {
     // Mise à jour pour les communes
-    d3.dsv(';', '/map/data_webmap/simplifier/COM_NUITEE_POPACTIVE.csv').then(data => {
-        return fetch('/map/data_webmap/simplifier/commune_nuite_simplifier.geojson')
+    d3.dsv(';', '../data_webmap/simplifier/COM_NUITEE_POPACTIVE.csv').then(data => {
+        return fetch('../data_webmap/simplifier/commune_nuite_simplifier.geojson')
             .then(response => response.json())
             .then(polygonGeoJSON => {
                 const volumeData = filterAndSumVolume(data, selectedDates, 'NE_ID');
@@ -1023,8 +1023,8 @@ const updateMapWithNewData = (selectedDates) => {
     })
     .then(() => {
       // Mise à jour pour EPCI
-      return d3.dsv(';', '/map/data_webmap/simplifier/EPCI_NUITEE_POPACTIVE.csv').then(data => {
-          return fetch('/map/data_webmap/simplifier/epci_nuite_simplifier.geojson')
+      return d3.dsv(';', '../data_webmap/simplifier/EPCI_NUITEE_POPACTIVE.csv').then(data => {
+          return fetch('../data_webmap/simplifier/epci_nuite_simplifier.geojson')
               .then(response => response.json())
               .then(polygonGeoJSON => {
                 const volumeData = filterAndSumVolume(data, selectedDates, 'NE_ID');
@@ -1093,8 +1093,8 @@ const updateMapWithNewData = (selectedDates) => {
   
     .then(() => {
         // Mise à jour pour IRIS
-        return d3.dsv(';', '/map/data_webmap/simplifier/IRIS_NUITEE_POPACTIVE.csv').then(data => {
-            return fetch('/map/data_webmap/simplifier/iris_nuite_simplifier.geojson')
+        return d3.dsv(';', '../data_webmap/simplifier/IRIS_NUITEE_POPACTIVE.csv').then(data => {
+            return fetch('../data_webmap/simplifier/iris_nuite_simplifier.geojson')
                 .then(response => response.json())
                 .then(polygonGeoJSON => {
                     const volumeData = filterAndSumVolume(data, selectedDates, 'NE_ID'); // Utilisation de NE_ID pour IRIS
