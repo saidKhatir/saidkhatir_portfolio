@@ -56,3 +56,18 @@ $(document).ready(function() {
         });
 
 }());
+
+document.addEventListener("DOMContentLoaded", function () {
+  let iframes = document.querySelectorAll(".lazy-iframe");
+  let observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              let iframe = entry.target;
+              iframe.src = iframe.getAttribute("data-src");
+              observer.unobserve(iframe);
+          }
+      });
+  });
+  iframes.forEach(iframe => observer.observe(iframe));
+});
+
