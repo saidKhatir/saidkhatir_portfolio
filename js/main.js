@@ -20,14 +20,23 @@
 $(document).ready(function() {
   var $container = $('.portfolio-items');
 
-  // Filtrer par défaut sur une catégorie spécifique (ex: .lorem)
-  $container.isotope({
-      filter: '.lorem', // Change ici pour la catégorie que tu veux afficher par défaut
-      animationOptions: {
-          duration: 750,
-          easing: 'linear',
-          queue: false
-      }
+  // Attendre que toutes les images soient chargées avant d'initialiser Isotope
+  // Cela évite les problèmes de calcul de dimensions
+  $container.imagesLoaded(function() {
+    // Filtrer par défaut sur une catégorie spécifique (ex: .lorem)
+    $container.isotope({
+        filter: '.lorem', // Change ici pour la catégorie que tu veux afficher par défaut
+        animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false
+        }
+    });
+    
+    // Réorganiser Isotope après le chargement des iframes
+    setTimeout(function() {
+      $container.isotope('layout');
+    }, 500);
   });
 
   $('.cat a').click(function() {
@@ -45,14 +54,12 @@ $(document).ready(function() {
       });
       return false;
   });
+  
+  // Nivo Lightbox - initialisé dans document.ready pour éviter les conflits
+  $('.portfolio-item a').nivoLightbox({
+          effect: 'slideDown',  
+          keyboardNav: true,                            
+      });
 });
-
-	
-	
-    // Nivo Lightbox 
-    $('.portfolio-item a').nivoLightbox({
-            effect: 'slideDown',  
-            keyboardNav: true,                            
-        });
 
 }());
