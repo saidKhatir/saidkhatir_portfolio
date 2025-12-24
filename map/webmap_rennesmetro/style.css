@@ -1,0 +1,82 @@
+/* Styles généraux */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style de la carte */
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Style général de la sidebar */
+.sidebar {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #f8f9fa;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    overflow-y: auto;
+}
+
+/* Style du heading dans la sidebar */
+.sidebar-header {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+
+/* Style des catégories */
+.categoryLabel {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+fieldset div {
+    margin-bottom: 5px;
+}
+
+/* Style des boutons */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saïd KHATIR - Portfolio Géomaticien</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>Saïd KHATIR</h1>
+                <p>Géomaticien</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" id="portfolio">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="carte">Cartes</button>
+            <button class="filter-btn" data-filter="infographie">Infographies</button>
+            <button class="filter-btn" data-filter="interactive">Cartes Interactives</button>
+        </div>
+
+        <div class="portfolio-grid">
+            <!-- Cartes -->
+            <div class="portfolio-item" data-category="carte">
+                <img src="img/portfolio/AnamorphoseOK2.webp" alt="Anamorphose" class="item-image">
+                <div class="item-content">
+                    <h3>Anamorphose</h3>
+                    <p>Richesse/Bonheur</p>
+                    <span class="item-tag">CARTE</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="carte">
+                <img src="img/portfolio/Rendu3.webp" alt="Elections" class="item-image">
+                <div class="item-content">
+                    <h3>Élections 2022</h3>
+                    <p>Analyse cartographique</p>
+                    <span class="item-tag">CARTE</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="carte">
+                <img src="img/portfolio/Bivariée.webp" alt="Carte Bivariée" class="item-image">
+                <div class="item-content">
+                    <h3>Analyse Bivariée</h3>
+                    <p>Cartographie thématique</p>
+                    <span class="item-tag">CARTE</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="carte">
+                <img src="img/portfolio/GES_Communes2.webp" alt="GES Communes" class="item-image">
+                <div class="item-content">
+                    <h3>GES Communes</h3>
+                    <p>Émissions de gaz à effet de serre</p>
+                    <span class="item-tag">CARTE</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="carte">
+                <img src="img/portfolio/GES_IRIS_2.webp" alt="GES IRIS" class="item-image">
+                <div class="item-content">
+                    <h3>GES IRIS</h3>
+                    <p>Analyse par IRIS</p>
+                    <span class="item-tag">CARTE</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="carte">
+                <img src="img/portfolio/GTFS.webp" alt="GTFS" class="item-image">
+                <div class="item-content">
+                    <h3>GTFS</h3>
+                    <p>Réseau de transport</p>
+                    <span class="item-tag">CARTE</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="carte">
+                <img src="img/portfolio/zone_nuitee_pop_active.webp" alt="Zone nuitée population active" class="item-image">
+                <div class="item-content">
+                    <h3>Zone de nuitée</h3>
+                    <p>Population active</p>
+                    <span class="item-tag">CARTE</span>
+                </div>
+            </div>
+
+            <!-- Infographies -->
+            <div class="portfolio-item" data-category="infographie">
+                <img src="img/portfolio/Running.webp" alt="Running" class="item-image">
+                <div class="item-content">
+                    <h3>Tracking Aérien</h3>
+                    <p>Poster infographique</p>
+                    <span class="item-tag">INFOGRAPHIE</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="infographie">
+                <img src="img/portfolio/WorkshoPoster.webp" alt="Workshop Poster" class="item-image">
+                <div class="item-content">
+                    <h3>Workshop Poster</h3>
+                    <p>Présentation visuelle</p>
+                    <span class="item-tag">INFOGRAPHIE</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="infographie">
+                <img src="img/portfolio/Dataviz.webp" alt="Dataviz" class="item-image">
+                <div class="item-content">
+                    <h3>Dataviz</h3>
+                    <p>Visualisation de données</p>
+                    <span class="item-tag">INFOGRAPHIE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="interactive-section" data-category="interactive">
+            <div class="map-container">
+                <h3>Dans le cadre de mon stage de fin de master, j'ai valorisé les données de mobilité de l'offre Flux Vision de Orange pour améliorer la visualisation, l'interprétation des indicateurs de flux de déplacement de population</h3>
+                <iframe src="./map/webmap_maplibre/index.html"></iframe>
+            </div>
+
+            <div class="map-container">
+                <h3>Visualisation des déchetteries à Rennes Métropole</h3>
+                <iframe src="./map/webmap_dech/index.html"></iframe>
+            </div>
+
+            <div class="map-container">
+                <h3>Visualisation des lieux d'intérêts de la métropole rennaise</h3>
+                <iframe src="./map/webmap_rennesmetro/index.html"></iframe>
+            </div>
+            <div class="map-container">
+                <h3>J'ai participé à la refonte de la cartographie interactive de l'université de Rennes 2.</h3>
+                <iframe src="https://map.univ-rennes2.fr/"></iframe>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <img src="img/about.jpg" alt="Saïd Khatir">
+            <div class="contact-details">
+                <p><strong>Email:</strong> saidkhatir44@gmail.com</p>
+                <div class="social-links">
+                    <a href="https://github.com/saidKhatir" target="_blank" title="GitHub">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sa%C3%AFd-khatir-525571204/" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Saïd KHATIR - Tous droits réservés.</p>
+    </footer>
+
+    <div class="modal" id="imageModal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Webmapping - Déchèteries de Rennes Métropole</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:description" content="Use extrusions to display buildings' height in 3D.">
+
+    <!-- Import des styles et scripts MapLibre -->
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@^2.4/dist/maplibre-gl.css">
+    <script src="https://unpkg.com/maplibre-gl@^2.4/dist/maplibre-gl.js"></script>
+    <!-- Local fichier de style -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="heading">
+            <h1>Déchèteries de Rennes Métropole</h1>
+        </div>
+        <div id="listings" class="listings"></div>
+    </div>
+
+    <div id="map" class="map"></div>
+    <script src="./main.js"></script>
+</body>
+
+</html>

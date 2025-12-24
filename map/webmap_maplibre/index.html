@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Webmapping</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Mapbox and Maplibre CSS -->
+    <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet">
+
+    
+    <!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css" 
+          integrity="sha512-SZgE3m1he0aEF3tIxxnz/3mXu/u/wlMNxQSnE0Cni9j/O8Gs+TjM9tm1NX34nRQ7GiLwUEzwuE3Wv2FLz2667w==" 
+          crossorigin="anonymous" />
+    <!-- noUiSlider CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css" rel="stylesheet">
+    
+    <!-- d3.js et d3-fetch -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-fetch@3.0.1/dist/d3-fetch.min.js"></script>
+
+    <!-- Local Style -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <!-- Nouveau header avec menu de navigation -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Flux de déplacement Flux Vision</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle disabled" href="#" id="visitorsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Combien de visiteurs ?
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="visitorsDropdown">
+                            <li><a class="dropdown-item" href="#">Fréquentation journalière</a></li>
+                            <li><a class="dropdown-item" href="#">Fréquentation horaire</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle disabled" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Qui sont-ils ?
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item" href="#">Profil des visiteurs français</a></li>
+                            <li><a class="dropdown-item" href="#">Habitude de visite</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="originDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            D'où viennent-ils ?
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="originDropdown">
+                            <li><a class="dropdown-item" href="#">Départements de résidence</a></li>
+                            <li><a class="dropdown-item" href="#">Pays de provenance</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="locationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Où se trouvent-ils majoritairement ?
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="locationDropdown">
+                            <li><a class="dropdown-item" href="#">En journée : zones d'activité</a></li>
+                            <li><a class="dropdown-item" href="#">En nuitée : zones de nuitée</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <!-- Bouton pour ouvrir le extra-container -->
+        <button id="open-extra" class="hidden" aria-label="Open extra container">&#9776;</button>
+
+        <!-- Conteneur supplémentaire -->
+        <div id="extra-container">
+            <button id="close-extra" aria-label="Close extra container">&times;</button>
+            <h5>Zone de provenance des visiteurs</h5>
+                <p> du coeur de ville de Belfort</p>
+            <div class="extra-content">
+                
+    
+                <div class="input-group" style="width:95%">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-secondary text-white btn-sm" id="dropdownMenuTitle">Indicateurs</span>
+                    </div>
+            
+                    <select id="variableSelect" class="custom-select">
+                     <option value="NUITE">Flux de visiteur cumulé</option>
+                     <!-- <option value="NUITE_POPACTIVE">Taux de pénétration d'actifs*</option> -->
+                         </select>
+                </div>
+                
+                
+                
+            <!-- Conteneur des contrôles et légendes -->
+            <div id="controls"></div>
+                <!-- Titre principal avec fond gris -->
+                <span class="input-group-text bg-secondary text-white" id="dropdownMenuTitle">Mode de visualisation</span>
+                <!-- Section de sélection des maillages -->
+                <div class="card">
+ 
+                    <!-- Contenu de la carte -->
+                    <h6>Sélectionner un maillage administratif</h6>
+                    
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Combiner les 3 maillages</label>
+                    </div>
+                    
+                    <div class="form-check-group">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="epci" value="checked">
+                            <label class="form-check-label" for="epci">EPCI</label>
+                            <i class="bi bi-info-circle" style="color: black;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Les établissements publics de coopération intercommunale (EPCI) sont des structures administratives permettant à plusieurs communes d’exercer des compétences en commun."></i>
+  </div>
+                        
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="commune-regroupee" value="checked">
+                            <label class="form-check-label" for="commune-regroupee">Commune regroupée</label>
+                            <i class="bi bi-info-circle" style="color: black;" data-bs-toggle="tooltip" data-bs-placement="bottom" 
+                               title="Les communes regroupées dans le cadre de l'offre Flux Vision désignent des regroupements de communes administratives, effectués pour des raisons de confidentialité et pour mieux refléter la couverture du réseau d'antennes d'Orange."></i>
+                        </div>
+                        
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="iris-regroupe" value="checked">
+                            <label class="form-check-label" for="iris-regroupe">IRIS Regroupé</label>
+                            <i class="bi bi-info-circle" style="color: black;" data-bs-toggle="tooltip" data-bs-placement="bottom" 
+                               title="Les IRIS regroupés dans le cadre de l'offre Flux Vision désignent des regroupements de communes administratives, effectués pour des raisons de confidentialité et pour mieux refléter la couverture du réseau d'antennes d'Orange."></i>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- Section d'affichage des volumes -->
+                <div class="card">
+                    <h6>Afficher les cercles proportionnels</h6>
+                    <div class="form-check">
+                        <input type="checkbox" id="toggle-all-circles">
+                        <label for="toggle-all-circles">Flux de visiteur cumulé par secteur</label>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+       <!-- Carte -->
+<div id="map-container">
+    <div id="map"></div>
+    <div id="info">Cliquez sur une entité pour voir les détails ici.</div>
+    <div id="marker-duplicate" class="dropdown">
+        <div id="marker-2" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></div>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="marker">
+            <li><a class="dropdown-item" href="#" id="zoom-to-study">Zoom sur la zone d'étude</a></li>
+        </ul>
+        
+    </div>
+
+
+    <!-- Conteneur pour les filtres -->
+    <div id="filters-container">
+       <!-- Section pour le slider -->
+<div class="dropdown filter-item">
+    <button class="btn btn-light border border-secondary dropdown-toggle text-secondary btn-sm type="button" id="dropdownSlider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Sur une période d'analyse ...
+    </button>
+    <div class="dropdown-menu p-3" aria-labelledby="dropdownSlider">
+      <div id="slider-outer-div">
+        <div id="slider-min-label" class="slider-label"></div>
+        <div id="slider-max-label" class="slider-label"></div>
+        <div id="slider-div">
+          <div>Début</div>
+          <div>
+            <input id="ex2" type="text" data-slider-min="50" data-slider-max="2000" data-slider-value="[50,300]" data-slider-tooltip="hide" />
+          </div>
+          <div>Fin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+              <!-- Section pour la durée de présence -->
+<div class="dropdown filter-item">
+    <button class="btn btn-light border border-secondary dropdown-toggle text-secondary btn-sm" type="button" id="dropdownDureePresence" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Pour les visiteurs présents ...
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownDureePresence">
+      <div class="dropdown-item">
+        <input type="checkbox" id="inf30min-checkbox">
+        <label for="inf30min-checkbox">moins de 30 min dans le centre de Belfort</label>
+      </div>
+      <div class="dropdown-item">
+        <input type="checkbox" id="30min3h-checkbox">
+        <label for="30min3h-checkbox">entre 30 min et 3 heures dans le centre de Belfort</label>
+      </div>
+      <div class="dropdown-item">
+        <input type="checkbox" id="sup3h-checkbox">
+        <label for="sup3h-checkbox">plus de 3 heures dans le centre de Belfort</label>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Section pour la nationalité -->
+  <div class="dropdown filter-item">
+    <button class="btn btn-light border border-secondary dropdown-toggle text-secondary btn-sm" type="button" id="dropdownNationalite" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      L'origine des visiteurs ...
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownNationalite">
+      <div class="dropdown-item">
+        <input type="checkbox" id="nationaux-checkbox">
+        <label for="nationaux-checkbox">Nationaux</label>
+      </div>
+      <div class="dropdown-item">
+        <input type="checkbox" id="etranger-checkbox">
+        <label for="etranger-checkbox">Étranger</label>
+      </div>
+    </div>
+    
+  </div>
+  
+    
+    <!-- Mapbox and Maplibre JS -->
+    <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Inclusion de Popper.js -->
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<!-- Exemple de CDN Bootstrap 4 et jQuery 3.x -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" 
+            integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- noUiSlider JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
+    
+    <!-- Local JS -->
+    <script src="./layers.js"></script>
+    <script src="./main.js"></script>
+
+    
+</body>
+</html>
