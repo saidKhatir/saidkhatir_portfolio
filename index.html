@@ -20,6 +20,8 @@
             </div>
             <nav>
                 <ul>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#parcours">Mon parcours</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -27,7 +29,111 @@
         </div>
     </header>
 
+    <!-- Section À propos -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>À propos</h2>
+                    <p>Je suis diplômé du master SIGAT (Système d'Information Géographique et Analyse des Territoires). Actuellement en CDD chez l'INRAE en tant que géomaticien, je participe à un projet qui vise à caractériser l'accessibilité des ménages aux points d'apport volontaires de déchets alimentaires.</p>
+                    <p>Je cherche actuellement un nouveau poste qui me permettra de mettre à contribution mes compétences et mes expériences au service de la connaissance des territoires.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Mon parcours -->
+    <section id="parcours">
+        <div class="container">
+            <h2 class="section-title">Mon parcours</h2>
+            <div class="timeline-container">
+                <button class="timeline-nav prev" aria-label="Précédent">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="timeline-wrapper">
+                    <div class="timeline-track">
+                        <!-- Étape 1: Avant 2019 -->
+                        <div class="timeline-item active" data-year="2019">
+                            <div class="timeline-card">
+                                <div class="timeline-year">Avant 2019</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3>Parcours professionnel</h3>
+                                <p>Début de mon parcours professionnel dans le secteur de l'industrie, la logistique et la fibre optique.</p>
+                            </div>
+                        </div>
+
+                        <!-- Étape 2: Jusqu'à 2022 -->
+                        <div class="timeline-item" data-year="2022">
+                            <div class="timeline-card">
+                                <div class="timeline-year">2019 - 2022</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <h3>Licence de Géographie et Aménagement du Territoire</h3>
+                                <p>Reprise d'études en géographie et aménagement du territoire et découverte de la géomatique.</p>
+                            </div>
+                        </div>
+
+                        <!-- Étape 3: Jusqu'à 2023 -->
+                        <div class="timeline-item" data-year="2023">
+                            <div class="timeline-card">
+                                <div class="timeline-year">2022 - 2023</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                </div>
+                                <h3>Master 1 SIGAT & Stage chez Bordeaux Métropole</h3>
+                                <p>Approfondissement des compétences en analyse spatiale, cartographie et gestion de bases de données géographiques.</p>
+                                
+                                <p>
+                                    Stage : Conduite de projets cartographiques : suivi des aménagements cyclables, suivi des acquisitions foncières,
+                                    et étude de la consommation foncière dans le cadre de la politique ZAN.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Étape 4: Jusqu'à 2024 -->
+                        <div class="timeline-item" data-year="2024">
+                            <div class="timeline-card">
+                                <div class="timeline-year">2023 - 2024</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <h3>Master 2 SIGAT & Stage chez Orange Business</h3>
+                                <p>Apprentissage de développement d'outils de webmapping sous language de programmation, création d'automatisation de chaîne de traitement pour des études d'analyse spatiale sous language Python et R.
+                                    Stage de fin d'études : Valorisation de données de mobilité dans le cadre d'une refonte du tableau de bord client.</p>
+                            </div>
+                        </div>
+
+                        <!-- Étape 5: Jusqu'à 2025 -->
+                        <div class="timeline-item" data-year="2025">
+                            <div class="timeline-card">
+                                <div class="timeline-year">2024 - 2025</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <h3>Géomaticien - INRAE</h3>
+                                <p>Poste en CDD à l'INRAE. Projet de caractérisation de l'accessibilité des ménages aux points d'apport volontaires de déchets alimentaires.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="timeline-nav next" aria-label="Suivant">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <div class="timeline-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Portfolio -->
     <div class="container" id="portfolio">
+        <h2 class="section-title">Portfolio</h2>
+        
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="carte">Cartes</button>
             <button class="filter-btn" data-filter="infographie">Infographies</button>
@@ -135,11 +241,9 @@
             </div>
 
             <div class="map-container">
-                <h3>Dans le cadre de mon stage de fin de master, j'ai valorisé les données de mobilité de l'offre Flux Vision de Orange pour améliorer la visualisation, l'interprétation des indicateurs de flux de déplacement de population</h3>
+                <h3>Dans le cadre de mon stage de fin de master, j'ai valorisé les données de mobilité de l'offre Flux Vision de Orange pour améliorer la visualisation et l'interprétation des indicateurs de flux de déplacement de population.</h3>
                 <iframe src="./map/webmap_maplibre/index.html"></iframe>
             </div>
-
-            
 
             <div class="map-container">
                 <h3>Visualisation des lieux d'intérêts de la métropole rennaise</h3>
@@ -150,22 +254,25 @@
                 <h3>Visualisation des déchetteries à Rennes Métropole</h3>
                 <iframe src="./map/webmap_dech/index.html"></iframe>
             </div>
-            
         </div>
     </div>
+
+    <!-- Section Contact -->
     <div id="contact">
-        <h2>Contact</h2>
-        <div class="contact-info">
-            <img src="img/about.jpg" alt="Saïd Khatir">
-            <div class="contact-details">
-                <p><strong>Email:</strong> saidkhatir44@gmail.com</p>
-                <div class="social-links">
-                    <a href="https://github.com/saidKhatir" target="_blank" title="GitHub">
-                        <i class="fab fa-github fa-lg"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/sa%C3%AFd-khatir-525571204/" target="_blank" title="LinkedIn">
-                        <i class="fab fa-linkedin fa-lg"></i>
-                    </a>
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <img src="img/about.jpg" alt="Saïd Khatir">
+                <div class="contact-details">
+                    <p><strong>Email:</strong> saidkhatir44@gmail.com</p>
+                    <div class="social-links">
+                        <a href="https://github.com/saidKhatir" target="_blank" title="GitHub">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sa%C3%AFd-khatir-525571204/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
