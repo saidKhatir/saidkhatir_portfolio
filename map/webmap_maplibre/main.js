@@ -494,9 +494,9 @@ function selectFeature(layer, featureId, properties) {
     
 // Access the variable values based on selectedVariable
 let variableText;
-const communeName = properties.NOM_COM || "Nom de la commune indisponible";  // Fetching the commune name
-const epciName = properties.NOM || "Nom de l'EPCI indisponible";
-const irisName = properties.NOM_IRIS || "Nom de l'IRIS indisponible";
+const communeName = properties.NOM_COM || "";  // Fetching the commune name
+const epciName = properties.NOM || "";
+const irisName = properties.NOM_IRIS || "";
 const sumpopactive = properties.sum_pop_active || "Données indisponibles";
 
 // Récupérer l'objet VolumeMoyen
