@@ -4,7 +4,7 @@ Ce dépôt contient le code source de mon **portfolio**. Je l’ai conçu pour *
 
 Le site est au format **one-page** : navigation simple et accès rapide à mes productions (cartes, infographies et cartes interactives).
 
-## [Accéder aux e-portfolio sous ce lien](https://saidkhatir.github.io/saidkhatir_portfolio/)
+## [Accéder au e-portfolio sous ce lien](https://saidkhatir.github.io/saidkhatir_portfolio/)
 
 ---
 
